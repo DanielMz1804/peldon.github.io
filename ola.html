@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedir Perdón</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        #perdon-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #te-amo {
+            display: none;
+            font-size: 24px;
+            color: #ff0000;
+            margin-top: 20px;
+        }
+
+        #no-btn {
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #no-btn:hover {
+            transform: translate(50px, -50px);
+            cursor: not-allowed;
+        }
+
+        #no-btn:active {
+            animation: shake 0.3s;
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(-10px);
+            }
+            30%, 50%, 70% {
+                transform: translateX(10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="perdon-container">
+        <p>¿Me perdonas?</p>
+        <button onclick="mostrarTeAmo()">Sí</button>
+        <button id="no-btn" onclick="moverNo()">No</button>
+        <p id="te-amo">Te amo</p>
+    </div>
+
+    <script>
+        function mostrarTeAmo() {
+            document.getElementById('te-amo').style.display = 'block';
+            document.getElementById('no-btn').innerHTML = 'No';
+            document.getElementById('no-btn').style.cursor = 'not-allowed';
+            document.getElementById('no-btn').removeAttribute('onclick');
+        }
+
+        function moverNo() {
+            var noBtn = document.getElementById('no-btn');
+            noBtn.style.transform = 'translate(50px, -50px)';
+            noBtn.style.cursor = 'not-allowed';
+            noBtn.removeAttribute('onclick');
+        }
+    </script>
+</body>
+</html>
